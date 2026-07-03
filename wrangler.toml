@@ -9,3 +9,6 @@ kv_namespaces = [
 routes = [
   { pattern = "meteo.dob-world.com/*", zone_name = "dob-world.com" }
 ]
+
+[observability]
+enabled = true

@@ -25,12 +25,16 @@ export default {
       if (alive) {
         sessionId = incomingToken;
         await env.SESSIONS.put(sessionId, "active", { expirationTtl: SESSION_TTL });
+        console.log(`session renewed: ${sessionId} path=${url.pathname}`);
+      } else {
+        console.log(`session expired or unknown: ${incomingToken} path=${url.pathname}`);
       }
     }
 
     if (!sessionId) {
       sessionId = crypto.randomUUID();
       await env.SESSIONS.put(sessionId, "active", { expirationTtl: SESSION_TTL });
+      console.log(`session created: ${sessionId} path=${url.pathname}`);
     }
 
     const response = await fetch(request);
