@@ -1,0 +1,11 @@
+name = "session-token-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+kv_namespaces = [
+  { binding = "SESSIONS", id = "TU_KV_NAMESPACE_ID" }
+]
+
+routes = [
+  { pattern = "meteo.dob-world.com/*", zone_name = "dob-world.com" }
+]
